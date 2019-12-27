@@ -11,6 +11,7 @@ import re
 from config import *
 from random import choice
 from captcha import captcha
+import hashlib
 
 
 class TakeLessions():
@@ -39,32 +40,42 @@ class TakeLessions():
         finally:
             print("********************************")
 
-    def scu_login(self,j_username, j_password):
+    def scu_login(self,username, password):
         """
         这里登录教务处网站，使之前得到的session和自己的身份联系在一起，从而使得session的身份验证生效
         """
-        captcha_class=captcha(self.s)
+        captcha_class = captcha(self.s)
         j_captcha = captcha_class()
         print("********************************")
         print("开始模拟登陆四川大学本科教务系统")
         postUrl = 'http://zhjw.scu.edu.cn/j_spring_security_check'
+
+        # 加入MD5加密hash
+        hl = hashlib.md5()
+        hl.update(password.encode(encoding='utf-8'))
+        j_password = hl.hexdigest()
+
         postData = {
-            "j_username": j_username,
+            "j_username": username,
             "j_password": j_password,
             "j_captcha": j_captcha,
         }
-        print("用户名为：",j_username)
-        print("密码为：",j_password)
+        print("用户名为：", username)
+        print("密码为：", password)
+        print("密码MD5值：", j_password)
         print("验证码为：", j_captcha)
         try:
             r = self.s.post(postUrl, data=postData, headers=self.headers)
             r.raise_for_status()
             r.encoding = r.apparent_encoding
-            if self.is_login(r.text):
+            opt  = self.is_login(r.text)
+            if opt == 1:
                 print("登录成功")
-            else:
+            elif opt == 2:
                 print("用户名和密码错误")
-            return self.is_login(r.text)
+            else:
+                print("验证码错误")
+            return opt == 1
             # print(s.cookies.get_dict())
             # print(r.text)
         except:
@@ -79,9 +90,13 @@ class TakeLessions():
         # 若无，返回空列表
         result = pattern.findall(str(text))
         if result != None and result != []:
-            return True
+            return 1
+        pattern = re.compile(r"验证码错误")
+        result = pattern.findall(str(text))
+        if result != None and result != []:
+            return 3
         else:
-            return False
+            return 2
 
 
     def scu_get_search(self,kch,kxh):
@@ -227,7 +242,7 @@ class TakeLessions():
 
     def __call__(self):
         self.scu_get_cookies()
-        self.scu_login("2016141413013", "19981026sun")
+        self.scu_login("111111", "111111")
 
 if __name__ == "__main__":
 

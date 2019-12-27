@@ -19,11 +19,14 @@ class captcha():
             self.s = requests.session()
         else:
             self.s = s
-        self.headers={
+        self.headers = {
             "User-Agent": choice(user_agent_list)
         }
-        
+
     def get_captcha_pic(self):
+        '''
+        获取验证码图片
+        '''
         print("********************************")
         get_url = "http://zhjw.scu.edu.cn/img/captcha.jpg"
         
@@ -115,7 +118,7 @@ def get_usekey_damagou():
         
 if __name__ == "__main__":
     import base64
-    with open("./2.jpg", "rb") as f:
+    with open("./index.jpg", "rb") as f:
         # b64encode是编码，b64decode是解码
         base64_data = base64.b64encode(f.read())
         # base64.b64decode(base64data)
