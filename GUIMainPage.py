@@ -50,10 +50,13 @@ class Mainpage(object):
         if kch == None and kxh == None:
             return None
         result = self.lessions.scu_post_cour(kch,kxh)
-        if result == 1 :
-            tkinter.messagebox.showinfo(title='四川大学抢课软件1.0', message="选课成功")
+        if result == 1:
+            tkinter.messagebox.showinfo(title='四川大学抢课软件v1.1', message="选课成功")
+        elif result == -1:
+            # TODO: 加入延时重试
+            tkinter.messagebox.showinfo(title='四川大学抢课软件v1.1', message="现在是非选课时段")
         else:
-            tkinter.messagebox.showinfo(title='四川大学抢课软件1.0', message="选课失败")
+            tkinter.messagebox.showinfo(title='四川大学抢课软件v1.1', message="选课失败")
 
     def newwindow(self):
         Mainpage(self.lessions)

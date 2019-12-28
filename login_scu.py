@@ -159,6 +159,11 @@ class TakeLessions():
         r = self.s.get(getUrl,headers = self.headers)
         r.raise_for_status()
         r.encoding = r.apparent_encoding
+
+        if self.is_course_picking(r.text):
+            print("当前为非选课阶段")
+            return -1, -1
+
         soup = BeautifulSoup(r.text,"html.parser")
         tokenValue = soup.find('input', attrs={"id": "tokenValue"}).get('value')
         fajhh = re.findall(r"/intentCourse/index\?fajhh=(\d+)'",r.text)[0]
@@ -166,7 +171,13 @@ class TakeLessions():
         print("获得token,fajhh")
         return tokenValue,fajhh
 
-    
+    def is_course_picking(self, text):
+        pattern = re.compile(r"当前为非选课阶段")
+        result = pattern.findall(str(text))
+        if result is not None and result != []:
+            return True
+        else:
+            return False
 
 
     def scu_post_cour(self,kch,kxh):
@@ -179,6 +190,11 @@ class TakeLessions():
         print("开始抢课")
         postUrl = "http://zhjw.scu.edu.cn/student/courseSelect/selectCourse/checkInputCodeAndSubmit"
         tokenValue,fajhh = self.scu_get_token_fajhh()
+
+        # 非选课时段
+        if tokenValue == -1 and fajhh == -1:
+            return -1
+
         postData = {
             "dealType":"2",
             "tokenValue":tokenValue,

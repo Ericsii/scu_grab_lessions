@@ -11,7 +11,7 @@ class Login(object):
         # 创建主窗口,用于容纳其它组件
         self.root = tkinter.Tk()
         # 给主窗口设置标题内容
-        self.root.title("四川大学抢课软件1.0")
+        self.root.title("四川大学抢课软件1.1")
         self.root.geometry('500x313')
         # 运行代码时记得添加一个gif图片文件，不然是会出错的，只能是gif文件
         self.canvas = tkinter.Canvas(self.root, height=300, width=500)  # 创建画布，也就是图片在画面上的大小
@@ -51,11 +51,11 @@ class Login(object):
         password = self.input_password.get()
         # 对账户信息进行验证，普通用户返回user，管理员返回master，账户错误返回noAccount，密码错误返回noPassword
         verifyResult = self.lessions.scu_login(account,password)
-        if verifyResult == True:
+        if verifyResult:
             self.is_rem_pass()
             self.root.destroy()
             Mainpage(self.lessions)
-        elif verifyResult == False:
+        else:
             #不知道为什么在这里不起作用
             #self.is_rem_pass()
             tkinter.messagebox.showinfo(title='四川大学抢课软件1.0', message='账号/密码错误请重新输入!')
