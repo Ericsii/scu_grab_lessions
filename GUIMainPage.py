@@ -6,7 +6,7 @@ class Mainpage(object):
         self.root = tkinter.Tk()
         self.lessions = lessions
         self.root.geometry("500x313")
-        self.root.title("四川大学抢课软件v2.0")
+        self.root.title("四川大学抢课软件v1.1")
         try:
             # 运行代码时记得添加一个gif图片文件，不然是会出错的，只能是gif文件
             self.canvas = tkinter.Canvas(self.root, height=300, width=500)  # 创建画布，也就是图片在画面上的大小

@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="261e44b7-f9c1-4b22-8116-9d67e73bc248" name="Default" comment="Add password MD5 hash">
+    <list default="true" id="261e44b7-f9c1-4b22-8116-9d67e73bc248" name="Default" comment="Add not in course selecting time error message">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUILOGIN.py" beforeDir="false" afterPath="$PROJECT_DIR$/GUILOGIN.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GUIMainPage.py" beforeDir="false" afterPath="$PROJECT_DIR$/GUIMainPage.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/login_scu.py" beforeDir="false" afterPath="$PROJECT_DIR$/login_scu.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -228,7 +226,7 @@
       <workItem from="1577454894244" duration="2582000" />
       <workItem from="1577457852530" duration="864000" />
       <workItem from="1577462045889" duration="2589000" />
-      <workItem from="1577524354533" duration="2159000" />
+      <workItem from="1577524354533" duration="2228000" />
     </task>
     <task id="LOCAL-00001" summary="Add password MD5 hash">
       <created>1577463061006</created>
@@ -237,7 +235,14 @@
       <option name="project" value="LOCAL" />
       <updated>1577463061006</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Add not in course selecting time error message">
+      <created>1577526590921</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1577526590921</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -245,7 +250,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Add password MD5 hash" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add password MD5 hash" />
+    <MESSAGE value="Add not in course selecting time error message" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add not in course selecting time error message" />
   </component>
   <component name="WindowStateProjectService">
     <state x="386" y="110" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1577526534844">
@@ -256,10 +262,10 @@
       <screen x="0" y="27" width="1920" height="1053" />
     </state>
     <state x="693" y="300" width="524" height="507" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.27.1920.1053@0.27.1920.1053" timestamp="1577455798707" />
-    <state x="563" y="136" width="1077" height="835" key="CommitChangelistDialog2" timestamp="1577463292774">
+    <state x="563" y="136" width="1077" height="835" key="CommitChangelistDialog2" timestamp="1577526590337">
       <screen x="0" y="27" width="1920" height="1053" />
     </state>
-    <state x="563" y="136" width="1077" height="835" key="CommitChangelistDialog2/0.27.1920.1053@0.27.1920.1053" timestamp="1577463292774" />
+    <state x="563" y="136" width="1077" height="835" key="CommitChangelistDialog2/0.27.1920.1053@0.27.1920.1053" timestamp="1577526590337" />
     <state x="329" y="118" width="1536" height="872" key="DiffContextDialog" timestamp="1577463497602">
       <screen x="0" y="27" width="1920" height="1053" />
     </state>
