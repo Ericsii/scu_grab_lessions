@@ -73,6 +73,7 @@ class Mainpage(object):
             self.take_lessions()
         else:
             self.label_info['text'] = "选课失败"
+            self.label_info.update()
 
     def newwindow(self):
         Mainpage(self.lessions)
