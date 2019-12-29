@@ -11,7 +11,7 @@ class Login(object):
         # 创建主窗口,用于容纳其它组件
         self.root = tkinter.Tk()
         # 给主窗口设置标题内容
-        self.root.title("四川大学抢课软件v1.1")
+        self.root.title("四川大学抢课软件"+Version)
         self.root.geometry('500x313')
         # 运行代码时记得添加一个gif图片文件，不然是会出错的，只能是gif文件
         self.canvas = tkinter.Canvas(self.root, height=300, width=500)  # 创建画布，也就是图片在画面上的大小
@@ -58,7 +58,7 @@ class Login(object):
         else:
             #不知道为什么在这里不起作用
             #self.is_rem_pass()
-            tkinter.messagebox.showinfo(title='四川大学抢课软件v1.1', message='账号/密码错误请重新输入!')
+            tkinter.messagebox.showinfo(title='四川大学抢课软件'+Version, message='账号/密码错误请重新输入!')
 
 
     def is_rem_pass(self):
