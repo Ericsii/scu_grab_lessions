@@ -34,11 +34,11 @@ class Mainpage(object):
             self.input_list_id = tkinter.Entry(self.root, width=30)
 
             # 创建一个抢课系统的按钮
-            self.do_button = tkinter.Button(self.root, command=self.take_lessions, text="Do it", width=10)
+            self.do_button = tkinter.Button(self.root, command=self.take_lessions, text="开始", width=10)
             # 创建一个停止系统的按钮,没有self.quit,不可以在函数这里加括号，否则就是执行
-            self.siginUp_button = tkinter.Button(self.root, command=self.Quit, text="Sign up", width=10)
+            self.siginUp_button = tkinter.Button(self.root, command=self.Quit, text="退出", width=10)
             # 创建一个新窗口
-            self.newwindow_button = tkinter.Button(self.root, command=self.newwindow, text="new window", width=10)
+            self.newwindow_button = tkinter.Button(self.root, command=self.newwindow, text="新建", width=10)
 
             # 创建后一定要布局，否则root面板上不会显示
             self.label_course.place(x=60, y=150)

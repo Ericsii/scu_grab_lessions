@@ -12,6 +12,7 @@ from config import *
 from random import choice
 from captcha import captcha
 import hashlib
+import time
 
 
 class TakeLessions():
@@ -217,9 +218,9 @@ class TakeLessions():
             text = eval(r.text)
             if text["result"] == "ok":
                 return 1
-            
-            
-            
+
+            # 延时防止被ban
+            time.sleep(2)
 
 
     def is_success(self,list1):
