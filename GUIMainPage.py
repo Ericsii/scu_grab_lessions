@@ -55,7 +55,7 @@ class Mainpage(object):
         kch = self.input_course.get()
         kxh = self.input_list_id.get()
         # 输入为空，跳过这次查询
-        if kch == None and kxh == None:
+        if kch is None and kxh is None:
             return None
         result = self.lessions.scu_post_cour(kch, kxh)
         if result == 1:
@@ -63,12 +63,12 @@ class Mainpage(object):
         elif result == -1:
             # TODO: 加入延时重试
             self.second = 60
-            self.label_info['text'] = "现在是非选课时段,将会在%.1f秒后重试" % self.second
+            self.label_info['text'] = "现在是非选课时段,将会在%.0f秒后重试" % self.second
             self.label_info.update()
             while self.second >= 0:
                 time.sleep(0.1)
                 self.second -= 0.1
-                self.label_info['text'] = "现在是非选课时段,将会在%.1f秒后重试" % self.second
+                self.label_info['text'] = "现在是非选课时段,将会在%.0f秒后重试" % self.second
                 self.label_info.update()
             self.take_lessions()
         else:
